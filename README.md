@@ -17,39 +17,6 @@ This script leverages a corporate Generative AI instance to assist developers wi
 - **Does not maintain a cache or database**; each run is a fresh session.
 - The script is **started manually from the command line** and prompts the user for the desired mode of operation.
 
-## 🧩 Architecture diagram
-The script operates by collecting local source code, combining it with a predefined prompt, and sending it to an external AI API. The response is then saved as a Markdown file.
-
-```mermaid
-graph TD
-    subgraph "User's Machine"
-        A[👨‍💻 User] -->|1. Runs script| B(ai_assistant.py);
-        B -->|2. Prompts for mode| A;
-        A -->|3. Selects mode (readme/analyze/all)| B;
-        B -->|4. Reads config.py| C[⚙️ config.py];
-        B -->|5. Scans Project Directory| D[📁 Source Code Files];
-        D -->|6. Reads file contents| B;
-        B -->|7. Constructs request payload| E[📦 JSON Payload];
-        E -->|8. POST Request| F[🌐 Corporate AI API];
-    end
-
-    subgraph "External Resource"
-        F -->|9. Processes code & prompt| F;
-        F -->|10. Returns response| E;
-    end
-    
-    subgraph "User's Machine"
-        E -->|11. Parses response| B;
-        B -->|12. Writes output file(s)| G[📄 README.md / analysis/*.md];
-        B -->|13. Writes log entry| H[📜 logs/*.log];
-    end
-
-    style C fill:#f9f,stroke:#333,stroke-width:2px
-    style D fill:#ccf,stroke:#333,stroke-width:2px
-    style G fill:#9f9,stroke:#333,stroke-width:2px
-    style H fill:#f96,stroke:#333,stroke-width:2px
-```
-
 ## ➕ Dependencies
 The script requires several Python libraries. It also depends on environment variables for secure access to the AI service.
 
