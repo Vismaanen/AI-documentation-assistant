@@ -1,5 +1,7 @@
 # 📃 AI code assistant
 
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 ## 💫 Updates
 2024-05-21 - initial version of the script
 
@@ -157,3 +159,12 @@ The script generates human-readable reports in Markdown format, as well as detai
 -   **`README.md`**: (Optional) A single, comprehensive file created in the `PROJECT_DIR`. It is generated based on the `AI_README_PROMPT` and the content of all included project files.
 -   **`AI analysis/<filename>.md`**: (Optional) In `analyze` mode, one Markdown file is created for each source code file. Each report contains the AI-generated analysis, refactoring suggestions, or documentation improvements for that specific file.
 -   **`logs/<timestamp>_api_checker.log`**: A log file containing detailed, timestamped information about the script's execution, including modes, files found, API requests, token counts, and success or failure messages. This is useful for debugging.
+
+## 📜 License
+
+Project is available under terms of **[Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)**.  
+Full license text can be found in file: [LICENSE](./LICENSE).
+
+---
+
+© 2025 **Vismaanen** — simple coding for simple life
