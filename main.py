@@ -45,9 +45,10 @@ def check_for_log() -> logging.Logger:
     Create a log file in a script location subdirectory.
     Return logger object configured for a local file and a console output.
     Exit script execution in case of an exception.
+
     :return: log object
     :rtype: logging.getLogger()
-    :raise exc: log file / directory creation exception, exiting script as aresult
+    :raise exc: log file / directory creation exception, exiting script as a result
     """
     # log parameters
     log_name = f"{datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}_api_checker.log"
