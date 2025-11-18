@@ -15,7 +15,7 @@ GPT_MODEL = "gpt-4o"
 
 
 # subject script / project directory
-PROJECT_DIR = ""
+PROJECT_DIR = "C:\\Users\\ParadowskiM\\OneDrive - FUJITSU\\Desktop\\GITHUB\\AI-documentation-assistant"
 # for a project: determine script / file extensions to be included for analysis
 INCLUDED_EXTENSIONS = ['*.py', '*.ps1', '*.sql']
 # if there are some files to be omitted: provide in this list
@@ -112,37 +112,47 @@ Analyze the code step-by-step and structure your response in Markdown using the 
 For each section, use bullet points to present your findings clearly and succinctly. Provide output in English.
 
 ### RESPONSE FORMAT
+# 📃 <SCRIPT NAME>
 
-### 1. Code Review (Security Vulnerabilities)
-*   Identify potential security vulnerabilities (e.g., Injection, hardcoded secrets, insecure library usage). Reference CWE where applicable.
+# 🔦 Code Review (Security Vulnerabilities)
+*   Identify potential security vulnerabilities (e.g., Injection, hardcoded secrets, insecure library usage). 
+Reference CWE where applicable.
 *   For each finding, briefly describe the issue and suggest a mitigation.
 *   If no significant vulnerabilities are found, state "No significant security vulnerabilities were identified."
-*   Example: `- CWE-798 (Use of Hard-coded Credentials): API key is hardcoded on line 15. Mitigation: Store secrets in environment variables or a dedicated secrets management service.`
+*   Example: `- CWE-798 (Use of Hard-coded Credentials): API key is hardcoded on line 15. Mitigation: Store secrets 
+in environment variables or a dedicated secrets management service.`
 
-### 2. Code Validation (Best Practices & Standards)
+# 🔎 Code Validation (Best Practices & Standards)
 *   List any major deviations from Python best practices (e.g., PEP 8), security guidelines, or general coding standards.
-*   Focus on issues like lack of error handling, missing type hints for critical functions, or overly complex logic that could hide bugs.
+*   Focus on issues like lack of error handling, missing type hints for critical functions, or overly complex 
+logic that could hide bugs.
 *   If the script is generally compliant, state "The script adheres to common best practices and standards."
-*   Example: `- Lack of specific exception handling in the `process_data` function could lead to unexpected crashes. Mitigation: Catch specific exceptions instead of a bare `except:`.`
+*   Example: `- Lack of specific exception handling in the `process_data` function could lead to unexpected crashes. 
+Mitigation: Catch specific exceptions instead of a bare `except:`.`
 
-### 3. Affected Systems
+# 🧩 Affected Systems
 *   List all external systems, services, or resources the script interacts with.
 *   Categorize each interaction (e.g., Database, File System, External API, OS Command).
 *   Example: `- External API: Connects to `api.example.com` for data retrieval.`
 *   Example: `- File System: Reads configuration from `/data/config.ini` and writes logs to `/var/log/app.log`.`
 *   Example: `- OS Command: Executes the `rsync` command.`
 
-### 4. Affected Data
-*   **Data Processed:** Briefly describe the type of data being handled (e.g., User PII, financial records, technical logs, configuration data).
-*   **Encryption in Transit:** State if data is encrypted during transfer (e.g., via HTTPS/TLS). (Yes/No/Not Applicable).
+# 🗃️ Affected Data
+*   **Data Processed:** Briefly describe the type of data being handled (e.g., User PII, financial records, technical 
+logs, configuration data).
+*   **Encryption in Transit:** State if data is encrypted during transfer (e.g., via HTTPS/TLS). 
+(Yes/No/Not Applicable).
 *   **Encryption at Rest:** State if data is encrypted when stored. (Yes/No/Not Applicable).
-*   **Data Sovereignty:** Note any potential issues related to data locality or cross-border data transfer. If none, state "No specific data sovereignty concerns identified."
+*   **Data Sovereignty:** Note any potential issues related to data locality or cross-border data transfer. 
+If none, state "No specific data sovereignty concerns identified."
 
-### 5. Risks & Mitigations
+# ⚠️ Risks & Mitigations
 *   Summarize the most critical risks identified from the points above in a simple list.
 *   For each risk, provide a concise description and a clear, actionable mitigation strategy.
-*   Example: `- Risk: Credential Leakage. Mitigation: Remove hardcoded credentials from the source code and utilize a secrets manager like HashiCorp Vault or AWS Secrets Manager.`
-*   Example: `- Risk: Unreliable data processing. Mitigation: Implement robust error handling and logging to ensure script stability and traceability.
+*   Example: `- Risk: Credential Leakage. Mitigation: Remove hardcoded credentials from the source code and utilize a 
+secrets manager like HashiCorp Vault or AWS Secrets Manager.`
+*   Example: `- Risk: Unreliable data processing. Mitigation: Implement robust error handling and logging to ensure 
+script stability and traceability.
 
 ### INPUT
 Python script provided for review: 

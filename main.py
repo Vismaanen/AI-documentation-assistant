@@ -40,7 +40,7 @@ def main() -> None:
     perform_analysis(log, mode, subjects)
 
 
-def check_for_log() -> logging.Logger or exit:
+def check_for_log() -> logging.Logger:
     """
     Create a log file in a script location subdirectory.
     Return logger object configured for a local file and a console output.
@@ -76,7 +76,7 @@ def check_for_log() -> logging.Logger or exit:
         exit()
 
 
-def check_mode(log: logging.Logger) -> str or exit:
+def check_mode(log: logging.Logger) -> str:
     """
     Ask for user input to choose script mode.
 
@@ -100,7 +100,7 @@ def check_mode(log: logging.Logger) -> str or exit:
         exit()
 
 
-def collect_files(log: logging.Logger) -> dict[str, str] or exit:
+def collect_files(log: logging.Logger) -> dict[str, str]:
     """
     Attempt to collect all eligible code files from PROJECT_DIR path in config file according to configured extensions.
 
@@ -115,7 +115,7 @@ def collect_files(log: logging.Logger) -> dict[str, str] or exit:
         log.info(f"directory in config: {directory}")
         directory = Path(directory)
     else:
-        log.warning(f"no valid directory configured, script will now exit")
+        log.warning(f"no valid project directory configured, check [PROJECT_DIR] variable value in config")
         exit()
 
     # loop folders to collect files matching configured extension
@@ -155,7 +155,7 @@ def perform_analysis(log: logging.Logger, mode: str, subjects: dict[str, str]) -
         tokens += manage_code_analysis(subjects, log)
     # summarize tokens usage for whole exchange
     log.info(f'-------------------')
-    log.info(f'tokens used: {tokens}')
+    log.info(f'in total: {tokens} used for all requests')
     log.info(f'all actions finished')
 
 
@@ -267,10 +267,10 @@ def count_tokens(parts: list[Any], log: logging.Logger) -> int:
             text = part.get("text", "")
             tokens = len(encoding.encode(text))
             total_tokens += tokens
-        log.info(f'> token count: {total_tokens}')
+        log.info(f'> request tokens: {total_tokens}')
         return total_tokens
     except Exception as exc:
-        log.warning(f'> cannot count tokens: {exc}')
+        log.warning(f'> cannot count request tokens: {exc}')
         return 0
 
 
