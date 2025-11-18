@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## 💫 Updates
-2024-05-21 - initial version of the script
+2025-11-18 - initial version of the script
 
 ## ⚙️ Main functionalities
 This script leverages a corporate Generative AI instance to assist developers with code refactoring and documentation. It's an interactive tool designed to automate the creation of project README files and perform detailed code analysis on a file-by-file basis.
